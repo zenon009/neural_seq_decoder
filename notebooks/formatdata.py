@@ -151,6 +151,12 @@ if __name__=="__main__":
             dataset = getDataset(dataDir + '/competitionHoldOut/' + sessionNames[dayIdx] + '.mat')
             competitionDatasets.append(dataset)
 
+    competitionDays = []
+    for dayIdx in range(len(sessionNames)):
+        if os.path.exists(dataDir + '/competitionHoldOut/' + sessionNames[dayIdx] + '.mat'):
+            competitionDays.append(dayIdx)
+    print(competitionDays)
+
     import pickle
 
     allDatasets = {}
