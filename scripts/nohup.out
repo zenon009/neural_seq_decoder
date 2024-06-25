@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/wrb15144/neural_seq_decoder/scripts/eval_competition.py", line 9, in <module>
+    import neural_decoder.utils.lmDecoderUtils as lmDecoderUtils
+ModuleNotFoundError: No module named 'neural_decoder.utils'
