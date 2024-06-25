@@ -110,6 +110,9 @@ def loadFeaturesAndNormalize(sessionPath):
 
     return session_data
 if __name__=="__main__":
+    import re
+    from g2p_en import G2p
+    import numpy as np
     sessionNames = ['t12.2022.04.28', 't12.2022.05.26', 't12.2022.06.21', 't12.2022.07.21', 't12.2022.08.13',
                     't12.2022.05.05', 't12.2022.06.02', 't12.2022.06.23', 't12.2022.07.27', 't12.2022.08.18',
                     't12.2022.05.17', 't12.2022.06.07', 't12.2022.06.28', 't12.2022.07.29', 't12.2022.08.23',
