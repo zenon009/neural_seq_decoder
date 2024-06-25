@@ -6,10 +6,11 @@ import numpy as np
 import torch
 
 
-import neural_decoder.utils.lmDecoderUtils as lmDecoderUtils
+
 import pickle
 import argparse
 
+from NeuralDecoder.neuralDecoder.utils import lmDecoderUtils
 from src.neural_decoder.dataset import SpeechDataset
 from src.neural_decoder.neural_decoder_trainer import getDatasetLoaders, loadModel
 
