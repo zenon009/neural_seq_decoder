@@ -4,12 +4,10 @@ import pickle
 import numpy as np
 
 import torch
-
-
-
 import pickle
 import argparse
-
+import sys
+sys.path.insert(1,"/home/wrb15144/neural_seq_decoder")
 from NeuralDecoder.neuralDecoder.utils import lmDecoderUtils
 from src.neural_decoder.dataset import SpeechDataset
 from src.neural_decoder.neural_decoder_trainer import getDatasetLoaders, loadModel
