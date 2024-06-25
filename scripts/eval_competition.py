@@ -6,7 +6,7 @@ import numpy as np
 import torch
 
 
-import neuralDecoder.utils.lmDecoderUtils as lmDecoderUtils
+import neural_decoder.utils.lmDecoderUtils as lmDecoderUtils
 import pickle
 import argparse
 
