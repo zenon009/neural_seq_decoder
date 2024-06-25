@@ -3,35 +3,32 @@ import time
 import pickle
 import numpy as np
 
-from edit_distance import SequenceMatcher
 import torch
-from dataset import SpeechDataset
-
-import matplotlib.pyplot as plt
 
 
-from nnDecoderModel import getDatasetLoaders
-from nnDecoderModel import loadModel
 import neuralDecoder.utils.lmDecoderUtils as lmDecoderUtils
 import pickle
 import argparse
 
+from src.neural_decoder.dataset import SpeechDataset
+from src.neural_decoder.neural_decoder_trainer import getDatasetLoaders, loadModel
+
 parser = argparse.ArgumentParser(description="")
 parser.add_argument("--modelPath", type=str, default=None, help="Path to model")
+parser.add_argument("--seqLen", type=int, default=500, help="Sequence length")
+parser.add_argument("--maxTimeSeriesLen", type=int, default=1200, help="Max time series length")
+parser.add_argument("--batchSize", type=int, default=64, help="Batch size")
+parser.add_argument(--"datasetPath", type=str, default=None, help="Path to dataset")
 input_args = parser.parse_args()
 
 
-with open(input_args.modelPath + "/args", "rb") as handle:
-    args = pickle.load(handle)
 
-args["datasetPath"] = "/oak/stanford/groups/henderj/stfan/data/ptDecoder_ctc"
 trainLoaders, testLoaders, loadedData = getDatasetLoaders(
-    args["datasetPath"], args["seqLen"], args["maxTimeSeriesLen"], args["batchSize"]
+    input_args["datasetPath"], input_args["seqLen"], input_args["maxTimeSeriesLen"], input_args["batchSize"]
 )
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = loadModel(input_args.modelPath, device=device)
 
-model = loadModel(input_args.modelPath, device="cpu")
-
-device = "cpu"
 
 model.eval()
 
