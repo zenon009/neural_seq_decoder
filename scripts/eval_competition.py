@@ -23,7 +23,7 @@ input_args = parser.parse_args()
 
 
 trainLoaders, testLoaders, loadedData = getDatasetLoaders(
-    input_args["datasetPath"], input_args["seqLen"], input_args["maxTimeSeriesLen"], input_args["batchSize"]
+    input_args.datasetPath, input_args.seqLen, input_args.maxTimeSeriesLen, input_args.batchSize
 )
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = loadModel(input_args.modelPath, device=device)
