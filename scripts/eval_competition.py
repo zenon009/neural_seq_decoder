@@ -17,7 +17,7 @@ parser.add_argument("--modelPath", type=str, default=None, help="Path to model")
 parser.add_argument("--seqLen", type=int, default=500, help="Sequence length")
 parser.add_argument("--maxTimeSeriesLen", type=int, default=1200, help="Max time series length")
 parser.add_argument("--batchSize", type=int, default=64, help="Batch size")
-parser.add_argument(--"datasetPath", type=str, default=None, help="Path to dataset")
+parser.add_argument("--datasetPath", type=str, default=None, help="Path to dataset")
 input_args = parser.parse_args()
 
 
